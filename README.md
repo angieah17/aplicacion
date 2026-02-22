@@ -527,16 +527,6 @@ npm install
 npm run web
 ```
 
-// ...existing code...
-
-### Paso 5 — Ejecutar la Aplicación Móvil (React Native) *(opcional)*
-
-```bash
-cd app-native
-npm install
-npm run web
-```
-
 > **Dependencia requerida:** La aplicación móvil utiliza **Axios** como cliente HTTP para consumir la API REST. Esta dependencia se instala automáticamente con `npm install`, pero si por algún motivo no se resuelve correctamente, puede instalarse de forma manual:
 
 > ```bash
