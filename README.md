@@ -484,16 +484,27 @@ Esto creará dos contenedores:
 
 > **Verificar:** `docker ps` debe mostrar ambos contenedores en estado `Up`.
 
-### Paso 3 — Ejecutar el Backend (Spring Boot)
+### Paso 3 — Ejecutar el Backend (Spring Boot) desde Eclipse
 
-```bash
-# Desde app.spring/
-./mvnw spring-boot:run
-```
+1. **Importar el proyecto:**
+   - Abrir **Eclipse IDE** (con soporte Spring Boot / Spring Tool Suite).
+   - Ir a `File` → `Open projects from file system…`
+   - En *Root Directory*, seleccionar la carpeta `app.spring/` y pulsar `Finish`.
+   - Esperar a que Maven descargue todas las dependencias.
 
-> En Windows usar `mvnw.cmd spring-boot:run`
+2. **Ejecutar la aplicación:**
+   - En el **Package Explorer**, navegar hasta la clase principal:  
+     `src/main/java` → `com.midominio.group.app.spring` → `Application.java`
+   - Clic derecho sobre `Application.java` → `Run As` → `Spring Boot App`.
+   - Alternativamente: clic derecho sobre el proyecto → `Run As` → `Spring Boot App`.
 
-El servidor arrancará en **http://localhost:8080**.  
+3. **Verificar el arranque:**
+   - En la consola de Eclipse debe aparecer el banner de Spring Boot y el mensaje:  
+     `Started Application in X seconds`
+   - El servidor estará disponible en **http://localhost:8080**.
+
+> **Nota:** Si Eclipse no muestra la opción *Spring Boot App*, asegurarse de tener instalado el plugin **Spring Tools (STS)** desde el Eclipse Marketplace (`Help` → `Eclipse Marketplace…` → buscar "Spring Tools").
+
 Al iniciar, `data.sql` insertará automáticamente:
 - 1 usuario administrador
 - 50 preguntas de ejemplo en diversas temáticas
@@ -513,12 +524,27 @@ La aplicación web estará disponible en **http://localhost:5173**.
 ```bash
 cd app-native
 npm install
-npx expo start
+npm run web
 ```
 
-Se abrirá Expo DevTools. Escanear el código QR con la app **Expo Go** en el dispositivo móvil, o pulsar `w` para abrir en navegador.
+// ...existing code...
 
-> **Nota:** Para dispositivos físicos, cambiar `localhost` por la IP local de la máquina en `usePublicPreguntas.js`.
+### Paso 5 — Ejecutar la Aplicación Móvil (React Native) *(opcional)*
+
+```bash
+cd app-native
+npm install
+npm run web
+```
+
+> **Dependencia requerida:** La aplicación móvil utiliza **Axios** como cliente HTTP para consumir la API REST. Esta dependencia se instala automáticamente con `npm install`, pero si por algún motivo no se resuelve correctamente, puede instalarse de forma manual:
+
+> ```bash
+> npm install axios
+> ```
+
+
+De esta manera se iniciará el bundler de **Expo** y se abrirá automáticamente la aplicación en el navegador mediante la plataforma **React Native for Web**. La interfaz renderiza un componente `FlatList` que consume el endpoint público `GET /api/public/preguntas` a través de un hook personalizado (`usePublicPreguntas`), mostrando el listado de preguntas activas con su enunciado, temática y tipo de pregunta.
 
 ### Resumen de puertos
 
