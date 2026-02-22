@@ -1,0 +1,6 @@
+tipo;enunciado;tematica;explicacion;opciones;respuestasCorrectas
+VERDADERO_FALSO;Java es un lenguaje compilado e interpretado;Programacion;La JVM ejecuta bytecode;;true
+UNICA;¿Cuál es el resultado de 2+2?;Matematicas;Suma básica;1|2|3|4;3
+MULTIPLE;¿Qué elementos son tipos de datos primitivos en Java?;Programacion;Selecciona todas las correctas;int|String|boolean|double;0,2,3
+UNICA;Capital de Francia;Geografia;Pregunta de cultura general;Madrid|Paris|Roma|Berlin;1
+MULTIPLE;¿Cuáles son planetas del sistema solar?;Ciencia;Selecciona todas las correctas;Marte|Luna|Jupiter|Venus;0,2,3
